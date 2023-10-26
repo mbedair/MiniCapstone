@@ -18,6 +18,9 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         //Initializing action bar
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
