@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context="com.example.minicapstone.SignupFragment">
+
+    <TextView
+        android:id="@+id/textSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign Up"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editSignUpUsername"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textSignUp"
+        android:layout_marginTop="10dp"
+        android:hint="Username"
+        android:maxLength="30" />
+
+    <EditText
+        android:id="@+id/editSignUpEmail"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editSignUpUsername"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:maxLength="50" />
+
+    <EditText
+        android:id="@+id/editSignUpPassword"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editSignUpEmail"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:maxLength="45" />
+
+    <Button
+        android:id="@+id/btnSignUp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editSignUpPassword"
+        android:layout_marginTop="20dp"
+        android:background="@color/orangeCustom3"
+        android:text="Sign Up"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textHaveAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnSignUp"
+        android:layout_marginTop="20dp"
+        android:text="Already have an account?" />
+
+    <Button
+        android:id="@+id/btnGoToLogin"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/btnSignUp"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@+id/textHaveAccount"
+        android:background="@null"
+        android:text="Log In"
+        android:textAllCaps="false" />
+
+
+</RelativeLayout>

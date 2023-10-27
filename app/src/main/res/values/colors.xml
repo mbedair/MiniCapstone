@@ -2,4 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="orangeCustom">#FF6733</color>
+    <color name="orangeCustom2">#FF5733</color>
+    <color name="orangeCustom3">#FF4F2A</color>
+    <color name="blueCustom">#05D</color>
 </resources>

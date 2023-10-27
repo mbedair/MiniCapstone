@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context="com.example.minicapstone.SettingsFragment">
+
+    <TextView
+        android:id="@+id/textSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Settings"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editSettingsUsername"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textSettings"
+        android:layout_marginTop="10dp"
+        android:hint="Username"
+        android:maxLength="30" />
+
+    <EditText
+        android:id="@+id/editSettingsEmail"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editSettingsUsername"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:maxLength="50" />
+
+    <EditText
+        android:id="@+id/editSettingsPassword"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editSettingsEmail"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:maxLength="45" />
+
+    <Button
+        android:id="@+id/btnSaveSettings"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editSettingsPassword"
+        android:layout_marginTop="20dp"
+        android:background="@color/orangeCustom3"
+        android:text="Save Settings"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textSettingsReturn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnSaveSettings"
+        android:layout_marginTop="20dp"
+        android:text="Or return back to" />
+
+    <Button
+        android:id="@+id/btnGoToHome"
+        android:layout_width="82dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/btnSaveSettings"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@+id/textSettingsReturn"
+        android:background="@null"
+        android:text="Home Page"
+        android:textAllCaps="false" />
+
+
+
+</RelativeLayout>
