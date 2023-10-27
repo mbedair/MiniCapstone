@@ -20,6 +20,8 @@ import android.widget.TextView;
 import android.content.Intent;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class MainActivity extends AppCompatActivity {
 
 
@@ -69,6 +71,8 @@ public class MainActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutMain, new LoginFragment(),null).commit();
 
             Toast.makeText(this, "Logout Successful", Toast.LENGTH_LONG).show();
+            //signs the user out of the firebase
+            FirebaseAuth.getInstance().signOut();
 
             return true;
         }

@@ -40,9 +40,10 @@ public class HomeFragment extends Fragment {
 
         //Setup WebView
         webViewVideoFeed.setWebViewClient(new WebViewClient());
-        webViewVideoFeed.loadUrl("https://8.8.8.8");
+        webViewVideoFeed.loadUrl("192.168.137.121:8081");
         WebSettings webSettings=webViewVideoFeed.getSettings();
         webSettings.setJavaScriptEnabled(true);
+
 
         return view;
     }
