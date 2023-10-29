@@ -16,7 +16,7 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/editLoginUsername"
+        android:id="@+id/editLoginEmail"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/textLogin"
@@ -28,7 +28,7 @@
         android:id="@+id/editLoginPassword"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editLoginUsername"
+        android:layout_below="@id/editLoginEmail"
         android:hint="Password"
         android:inputType="textPassword"
         android:maxLength="45" />

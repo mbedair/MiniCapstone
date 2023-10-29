@@ -20,8 +20,12 @@ import android.widget.TextView;
 import android.content.Intent;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class MainActivity extends AppCompatActivity {
 
+    //Firebase
+    private FirebaseAuth auth;
 
     //Class Attributes
     Fragment fragment;
@@ -34,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        //Firebase instance initialization
+        auth = FirebaseAuth.getInstance();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -67,6 +74,9 @@ public class MainActivity extends AppCompatActivity {
 
         if (item.getItemId() == R.id.action_sign_out) {                 //If "Sign Out"
             getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutMain, new LoginFragment(),null).commit();
+
+            //Logs the user out of the Firebase
+            FirebaseAuth.getInstance().signOut();
 
             Toast.makeText(this, "Logout Successful", Toast.LENGTH_LONG).show();
 
