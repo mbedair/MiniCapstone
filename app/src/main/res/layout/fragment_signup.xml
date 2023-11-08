@@ -4,34 +4,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    tools:context="com.example.minicapstone.SignupFragment">
+    tools:context="com.example.minicapstone.SignupFragment"
+    android:background="#FFFCF2">
 
     <TextView
         android:id="@+id/textSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sign Up"
-        android:textColor="#000"
+        android:textColor="#252422"
         android:textSize="20dp"
         android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/editSignUpUsername"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textSignUp"
-        android:layout_marginTop="10dp"
-        android:hint="Username"
-        android:maxLength="30" />
+
 
     <EditText
         android:id="@+id/editSignUpEmail"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editSignUpUsername"
+        android:layout_below="@id/textSignUp"
         android:hint="Email"
         android:inputType="textEmailAddress"
-        android:maxLength="50" />
+        android:maxLength="50"
+        android:textColor="#403D39"/>
 
     <EditText
         android:id="@+id/editSignUpPassword"
@@ -40,7 +35,8 @@
         android:layout_below="@id/editSignUpEmail"
         android:hint="Password"
         android:inputType="textPassword"
-        android:maxLength="45" />
+        android:maxLength="45"
+        android:textColor="#403D39"/>
 
     <Button
         android:id="@+id/btnSignUp"
@@ -48,9 +44,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/editSignUpPassword"
         android:layout_marginTop="20dp"
-        android:background="@color/orangeCustom3"
+        android:background="#403D39"
         android:text="Sign Up"
-        android:textColor="#FFFFFF"
+        android:textColor="#FFFCF2"
         android:textStyle="bold" />
 
     <TextView
@@ -59,7 +55,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/btnSignUp"
         android:layout_marginTop="20dp"
-        android:text="Already have an account?" />
+        android:text="Already have an account?"
+        android:textColor="#403D39"/>
 
     <Button
         android:id="@+id/btnGoToLogin"
@@ -70,7 +67,8 @@
         android:layout_toRightOf="@+id/textHaveAccount"
         android:background="@null"
         android:text="Log In"
-        android:textAllCaps="false" />
+        android:textAllCaps="false"
+        android:textColor="#403D39"/>
 
 
 </RelativeLayout>

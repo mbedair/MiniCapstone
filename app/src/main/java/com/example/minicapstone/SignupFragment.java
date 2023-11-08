@@ -11,27 +11,44 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import android.content.Intent;
+import android.view.View;
+import android.widget.TextView;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class SignupFragment extends Fragment {
 
+    private FirebaseAuth auth;
+
     //Class Attributes
-    private String username, email, password;
+    private String email, password;
 
     //Views
     View view;
-    private EditText editSignUpUsername, editSignUpPassword;
+    private EditText editSignUpPassword, editSignUpEmail;
     private Button btnSignUp, btnGoToLogin;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        auth = FirebaseAuth.getInstance();
+
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_signup, container, false);
 
         //Retrieve View ID's
-        editSignUpUsername = view.findViewById(R.id.editSignUpUsername);
+        editSignUpEmail = view.findViewById(R.id.editSignUpEmail);
         editSignUpPassword = view.findViewById(R.id.editSignUpPassword);
         btnSignUp = view.findViewById(R.id.btnSignUp);
         btnGoToLogin = view.findViewById(R.id.btnGoToLogin);
@@ -42,11 +59,30 @@ public class SignupFragment extends Fragment {
             public void onClick(View view) {
 
                 //Check if any of the input fields are left empty
-                if (editSignUpUsername.length() < 1 || editSignUpPassword.length() < 1) {
+                if (editSignUpEmail.length() < 1 || editSignUpPassword.length() < 1) {
                     Toast.makeText(getActivity(), "Please Fill In All Fields", Toast.LENGTH_SHORT).show();
+                } else if (editSignUpPassword.length() < 6) {
+                    Toast.makeText(getActivity(), "Password has to be at least 6 characters", Toast.LENGTH_SHORT).show();
                 } else {
-                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutMain, new LoginFragment(),null).commit();
-                    Toast.makeText(getActivity(), "Account Created Successfully", Toast.LENGTH_LONG).show();
+
+                    email = editSignUpEmail.getText().toString().trim();
+                    password = editSignUpPassword.getText().toString().trim();
+
+
+                    auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutMain, new LoginFragment(),null).commit();
+                                Toast.makeText(getActivity(), "Account Created Successfully", Toast.LENGTH_LONG).show();
+                            } else {
+                                Toast.makeText(getActivity(), "Account Creation failed", Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    });
+
+
+
                 }
             }
 

@@ -4,53 +4,57 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    tools:context="com.example.minicapstone.SettingsFragment">
+    tools:context="com.example.minicapstone.SettingsFragment"
+    android:background="#FFFCF2">
 
     <TextView
         android:id="@+id/textSettings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Edit Settings"
-        android:textColor="#000"
+        android:textColor="#252422"
         android:textSize="20dp"
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/editSettingsUsername"
+        android:id="@+id/editSettingsNickname"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/textSettings"
         android:layout_marginTop="10dp"
-        android:hint="Username"
-        android:maxLength="30" />
+        android:hint="Nickname"
+        android:maxLength="30"
+        android:textColor="#403D39"/>
 
     <EditText
-        android:id="@+id/editSettingsEmail"
+        android:id="@+id/editSettingsOldPassword"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editSettingsUsername"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:maxLength="50" />
-
-    <EditText
-        android:id="@+id/editSettingsPassword"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editSettingsEmail"
-        android:hint="Password"
+        android:layout_below="@id/editSettingsNickname"
+        android:hint="Old Password"
         android:inputType="textPassword"
-        android:maxLength="45" />
+        android:maxLength="45"
+        android:textColor="#403D39"/>
+
+    <EditText
+        android:id="@+id/editSettingsNewPassword"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editSettingsOldPassword"
+        android:hint="New Password"
+        android:inputType="textPassword"
+        android:maxLength="45"
+        android:textColor="#403D39"/>
 
     <Button
         android:id="@+id/btnSaveSettings"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editSettingsPassword"
+        android:layout_below="@id/editSettingsNewPassword"
         android:layout_marginTop="20dp"
-        android:background="@color/orangeCustom3"
+        android:background="#EB5E28"
         android:text="Save Settings"
-        android:textColor="#FFFFFF"
+        android:textColor="#FFFCF2"
         android:textStyle="bold" />
 
     <TextView
@@ -70,7 +74,8 @@
         android:layout_toRightOf="@+id/textSettingsReturn"
         android:background="@null"
         android:text="Home Page"
-        android:textAllCaps="false" />
+        android:textAllCaps="false"
+        android:textColor="#252422"/>
 
 
 
