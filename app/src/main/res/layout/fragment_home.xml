@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFCF2"
-    tools:context="com.example.minicapstone.HomeFragment"
-    tools:ignore="WebViewLayout">
+    android:background="@color/white"
+    tools:ignore="WebViewLayout"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
 
+
+    <TextView
+        android:id="@+id/textWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="67dp"
+        android:text="Welcome"
+        android:textColor="#403D39"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        />
 
     <TextView
         android:id="@+id/editHomeNickname"
@@ -18,41 +30,72 @@
         android:textSize="25sp"
         android:textStyle="bold"
         android:textColor="#EB5E28"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textWelcome" />
+        />
 
-    <TextView
-        android:id="@+id/textWelcome"
+
+    <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="67dp"
-        android:layout_marginBottom="120dp"
-        android:text="Welcome"
-        android:textColor="#403D39"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/webViewVideoFeed"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="350dp"
+        android:layout_marginTop="50dp"
+        app:cardElevation="10dp"
+        app:cardCornerRadius="15dp">
 
-    <WebView
-        android:id="@+id/webViewVideoFeed"
-        android:layout_width="384dp"
-        android:layout_height="0dp"
-        android:layout_below="@+id/textWelcome"
-        android:layout_marginBottom="222dp"
-        android:background="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.481"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textWelcome"
-        app:layout_constraintVertical_bias="0.498" />
+        <WebView
+            android:id="@+id/webViewVideoFeed"
+            android:layout_width="384dp"
+            android:layout_height="288dp" />
+
+        <LinearLayout
+            android:layout_width="384dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="20dp"
+            android:background="#FFFFFF"
+            android:orientation="horizontal"
+            android:elevation="0dp"
+            android:layout_gravity="bottom">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="5dp"
+                app:cardBackgroundColor="@color/orangeCustom3">
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bad posture"
+                    android:fontFamily="@font/gotham_rounded_bold_21016"
+                    android:textColor="@color/black"
+                    android:textAlignment="viewStart"
+                    android:textSize="18sp"/>
+                <TextView
+                    android:layout_marginTop="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Straighten your back "
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/gotham_rounded_book_21018"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    />
 
 
 
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
