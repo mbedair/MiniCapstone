@@ -1,7 +1,5 @@
 package com.example.minicapstone;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -31,6 +30,7 @@ public class LoginFragment extends Fragment {
     View view;
     private EditText editLoginEmail, editLoginPassword;
     private Button btnLogin, btnGoToSignUp;
+    private ImageButton imgBtnLoginBack;
 
 
     @Override
@@ -47,9 +47,7 @@ public class LoginFragment extends Fragment {
         editLoginPassword = view.findViewById(R.id.editLoginPassword);
         btnLogin = view.findViewById(R.id.btnLogin);
         btnGoToSignUp = view.findViewById(R.id.btnGoToSignUp);
-
-        //Hide Toolbar
-        ((MainActivity)getActivity()).getSupportActionBar().hide();
+        imgBtnLoginBack = view.findViewById(R.id.imgBtnLoginBack);
 
 
         //Set Login Button OnClickListener
@@ -97,6 +95,24 @@ public class LoginFragment extends Fragment {
             }
         });
 
+
+        //Set GoToSignup Button OnClickListener
+        btnGoToSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutMain, new SignupFragment(),null).commit();
+            }
+        });
+
+
+        //Set GoToSignup Button OnClickListener
+        imgBtnLoginBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutMain, new StartFragment(),null).commit();
+            }
+        });
+
         return view;
     }
 
@@ -104,18 +120,12 @@ public class LoginFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-
-        //Hide Toolbar
-        ((MainActivity)getActivity()).getSupportActionBar().hide();
     }
 
 
     @Override
     public void onStop() {
         super.onStop();
-
-        //Show Toolbar
-        ((MainActivity)getActivity()).getSupportActionBar().show();
     }
 
 }

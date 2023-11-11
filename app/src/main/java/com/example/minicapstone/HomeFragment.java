@@ -46,9 +46,6 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        //Show Toolbar
-        ((MainActivity)getActivity()).getSupportActionBar().show();
-
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String userId = user.getUid();
 
@@ -93,18 +90,12 @@ public class HomeFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-
-        //Hide Toolbar
-        ((MainActivity)getActivity()).getSupportActionBar().show();
     }
 
 
     @Override
     public void onStop() {
         super.onStop();
-
-        //Hide Toolbar
-        ((MainActivity)getActivity()).getSupportActionBar().show();
     }
 
 

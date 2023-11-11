@@ -103,18 +103,12 @@ public class SignupFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-
-        //Hide Toolbar
-        ((MainActivity)getActivity()).getSupportActionBar().hide();
     }
 
 
     @Override
     public void onStop() {
         super.onStop();
-
-        //Show Toolbar
-        ((MainActivity)getActivity()).getSupportActionBar().show();
     }
 
 }
