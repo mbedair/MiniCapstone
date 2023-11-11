@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StartFragment"
+    android:orientation="vertical"
+    android:background="#FFFFFF">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="390dp"
+        android:id="@+id/imgStartScreen"
+        android:src="@drawable/start_screen_img"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="12dp"
+        android:scaleType="fitCenter"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textStartPosture"
+        android:text="PostureFit"
+        android:textColor="@color/orangeCustom3"
+        android:textSize="26dp"
+        android:fontFamily="@font/gotham_rounded_bold_21016"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="5dp"/>
+<!--
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_marginBottom="40dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textStartPosture"
+            android:text="PostureFit"
+            android:textColor="@color/orangeCustom3"
+            android:textSize="26dp"
+            android:fontFamily="@font/gotham_rounded_bold_21016"
+            android:layout_marginLeft="20dp"/>
+
+    </RelativeLayout>
+-->
+</LinearLayout>

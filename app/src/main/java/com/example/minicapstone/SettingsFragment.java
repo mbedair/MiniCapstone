@@ -54,8 +54,6 @@ public class SettingsFragment extends Fragment {
         btnSaveSettings = view.findViewById(R.id.btnSaveSettings);
         btnGoToHome = view.findViewById(R.id.btnGoToHome);
 
-        //Hide Toolbar
-        ((MainActivity)getActivity()).getSupportActionBar().hide();
 
         //Firebase updating data
 
