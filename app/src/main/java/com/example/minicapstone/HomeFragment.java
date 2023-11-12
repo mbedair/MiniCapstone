@@ -37,6 +37,11 @@ public class HomeFragment extends Fragment {
 
     private String nickname;
 
+    //Vectors to be later extracted from database
+
+    double[] U = {0, 5};
+    double[] V = {1, 8};
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -119,5 +124,33 @@ public class HomeFragment extends Fragment {
             return true;
         }
     }
+
+    //Calculations on vectors to deduce if correct/wrong posture
+    private void calculateAngle() {
+        // Calculate dot product
+        double dotProduct = (U[0] * V[0]) + (U[1] * V[1]);
+
+        // Calculate magnitudes
+        double magnitudeU = Math.sqrt(U[0] * U[0] + U[1] * U[1]);
+        double magnitudeV = Math.sqrt(V[0] * V[0] + V[1] * V[1]);
+
+        // Calculate cosine of the angle
+        double cosineTheta = dotProduct / (magnitudeU * magnitudeV);
+
+        // Calculate the angle in radians
+        double angleDegree = Math.acos(cosineTheta);
+
+        // Do something with the calculated angle if needed
+        // For example, display it in a TextView or perform further actions
+
+        if(angleDegree > 85 && angleDegree < 110){
+
+        }
+    }
+
+
+
+
+
 
 }
