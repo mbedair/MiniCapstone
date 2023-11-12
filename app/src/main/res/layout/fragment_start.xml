@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    tools:context=".StartFragment">
+
+    <ImageView
+        android:id="@+id/imgStartScreen"
+        android:layout_width="wrap_content"
+        android:layout_height="390dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="-14dp"
+        android:src="@drawable/start_screen_img" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="360dp"
+        android:layout_gravity="center"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/textStartPosture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/gotham_rounded_bold_21016"
+            android:text="PostureFit"
+            android:textColor="@color/orangeCustom3"
+            android:textSize="32dp" />
+
+        <TextView
+            android:id="@+id/textStartDescription"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textStartPosture"
+            android:layout_alignStart="@+id/textStartPosture"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/gotham_rounded_book_21018"
+            android:text="A helper tool to keep your posture in check"
+            android:textColor="#252422"
+            android:textSize="26dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginTop="200dp">
+
+            <Button
+                android:id="@+id/btnStartLogin"
+                android:layout_width="325dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_orange"
+                android:fontFamily="@font/gotham_rounded_medium_21022"
+                android:text="Continue"
+                android:textAllCaps="false"
+                android:textColor="#FFFCF2"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:layout_marginTop="100dp"/>
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+    <!--
+        <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="360dp"
+        android:background="@color/white"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textStartPosture"
+            android:text="PostureFit"
+            android:textColor="@color/orangeCustom3"
+            android:textSize="26dp"
+            android:fontFamily="@font/gotham_rounded_bold_21016"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="-170dp"
+            android:layout_marginTop="10dp"/>
+
+    </RelativeLayout>
+    -->
+
+</LinearLayout>

@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.annotation.NonNull;
@@ -36,6 +37,7 @@ public class SignupFragment extends Fragment {
     View view;
     private EditText editSignUpPassword, editSignUpEmail;
     private Button btnSignUp, btnGoToLogin;
+    ImageView imgBtnSignUpBack;
 
 
     @Override
@@ -52,6 +54,7 @@ public class SignupFragment extends Fragment {
         editSignUpPassword = view.findViewById(R.id.editSignUpPassword);
         btnSignUp = view.findViewById(R.id.btnSignUp);
         btnGoToLogin = view.findViewById(R.id.btnGoToLogin);
+        imgBtnSignUpBack = view.findViewById(R.id.imgBtnSignUpBack);
 
         //Set SignUp Button OnClickListener
         btnSignUp.setOnClickListener(new View.OnClickListener() {
@@ -96,6 +99,14 @@ public class SignupFragment extends Fragment {
             }
         });
 
+        //Set SignUp Back Image Button OnClickListener
+        imgBtnSignUpBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutMain, new LoginFragment(),null).commit();
+            }
+        });
+
         return view;
     }
 
@@ -103,18 +114,12 @@ public class SignupFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-
-        //Hide Toolbar
-        ((MainActivity)getActivity()).getSupportActionBar().hide();
     }
 
 
     @Override
     public void onStop() {
         super.onStop();
-
-        //Show Toolbar
-        ((MainActivity)getActivity()).getSupportActionBar().show();
     }
 
 }

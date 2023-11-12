@@ -45,15 +45,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Action Bar
-        getSupportActionBar().setTitle("Home");                     //Set title displayed in the Action Bar
-
         //Retrieve View ID's
         frameLayoutMain = findViewById(R.id.frameLayoutMain);
 
         //Add Login Fragment
         if(savedInstanceState == null) {
-            addLoginFragment();
+            addStartFragment();
         }
 
     }
@@ -94,8 +91,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void addLoginFragment() {
-        fragment = new LoginFragment();
+    public void addStartFragment() {
+        fragment = new StartFragment();
         fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.frameLayoutMain, fragment);

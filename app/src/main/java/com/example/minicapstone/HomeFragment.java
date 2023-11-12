@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -34,13 +35,15 @@ public class HomeFragment extends Fragment {
     //Views
     private WebView webViewVideoFeed;
     private TextView editHomeNickname;
-
+    private TextView upperStatusText;
+    private TextView lowerStatusText;
+    private androidx.cardview.widget.CardView colorStatus;
     private String nickname;
 
     //Vectors to be later extracted from database
 
-    double[] U = {0, 5};
-    double[] V = {1, 8};
+    double[] U;
+    double[] V;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -51,13 +54,14 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        //Show Toolbar
-        ((MainActivity)getActivity()).getSupportActionBar().show();
-
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String userId = user.getUid();
 
+        upperStatusText = view.findViewById(R.id.posturestatusuppertext);
+        lowerStatusText = view.findViewById(R.id.posturestatuslowertext);
+        colorStatus = view.findViewById(R.id.posturestatuscolor);
         editHomeNickname = view.findViewById(R.id.editHomeNickname);
+
 
         DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("users").child(userId);
         usersRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -98,18 +102,12 @@ public class HomeFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-
-        //Hide Toolbar
-        ((MainActivity)getActivity()).getSupportActionBar().show();
     }
 
 
     @Override
     public void onStop() {
         super.onStop();
-
-        //Hide Toolbar
-        ((MainActivity)getActivity()).getSupportActionBar().show();
     }
 
 
@@ -144,6 +142,11 @@ public class HomeFragment extends Fragment {
         // For example, display it in a TextView or perform further actions
 
         if(angleDegree > 85 && angleDegree < 110){
+
+            //Update the UI if good posture
+            upperStatusText.setText("Good posture");
+            lowerStatusText.setText("Keep your back straight");
+            colorStatus.setCardBackgroundColor(ContextCompat.getColor(requireContext(), R.color.greencustom));
 
         }
     }
