@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1029927667715",
+    "project_id": "minicapstone-f98f1",
+    "storage_bucket": "minicapstone-f98f1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1029927667715:android:b41392eabf4098f5b52636",
+        "android_client_info": {
+          "package_name": "com.example.minicapstone"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkFFvbyonWO8xJaDjoBMcgYbXf-Ku3ybk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
