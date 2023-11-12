@@ -32,7 +32,7 @@
             android:fontFamily="@font/gotham_rounded_bold_21016"
             android:text="PostureFit"
             android:textColor="@color/orangeCustom3"
-            android:textSize="26dp" />
+            android:textSize="32dp" />
 
         <TextView
             android:id="@+id/textStartDescription"
