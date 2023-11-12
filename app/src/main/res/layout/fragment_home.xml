@@ -11,23 +11,38 @@
 
 
     <TextView
+        android:id="@+id/textDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="SUNDAY, NOVEMBER 12"
+        android:textColor="#5C5C5C"
+        android:textSize="13dp"
+        android:textStyle="bold"
+        android:fontFamily="@font/sf_pro_display_bold"
+        android:layout_gravity="left"
+        android:layout_marginLeft="14dp"
+        />
+
+    <TextView
         android:id="@+id/textWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="67dp"
-        android:text="Welcome"
-        android:textColor="#403D39"
-        android:textSize="25sp"
+        android:text="Home"
+        android:textColor="#292929"
+        android:textSize="32dp"
         android:textStyle="bold"
+        android:fontFamily="@font/sf_pro_display_bold"
+        android:layout_gravity="left"
+        android:layout_marginLeft="14dp"
         />
 
     <TextView
         android:id="@+id/editHomeNickname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="[user]"
-        android:textSize="25sp"
+        android:text=""
+        android:textSize="0dp"
         android:textStyle="bold"
         android:textColor="#EB5E28"
         />
@@ -76,7 +91,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Bad posture"
-                    android:fontFamily="@font/gotham_rounded_bold_21016"
+                    android:fontFamily="@font/sf_pro_display_bold"
                     android:textColor="@color/black"
                     android:textAlignment="viewStart"
                     android:textSize="18sp"/>
