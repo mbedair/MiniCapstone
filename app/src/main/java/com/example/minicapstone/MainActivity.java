@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Add Login Fragment
         if(savedInstanceState == null) {
-            addLoginFragment();
+            addStartFragment();
         }
 
     }
@@ -91,8 +91,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void addLoginFragment() {
-        fragment = new LoginFragment();
+    public void addStartFragment() {
+        fragment = new StartFragment();
         fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.frameLayoutMain, fragment);
