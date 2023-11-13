@@ -102,7 +102,7 @@
                     android:layout_marginTop="4dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Straighten your back "
+                    android:text="Straighten your back"
                     android:layout_gravity="center"
                     android:fontFamily="@font/gotham_rounded_book_21018"
                     android:textColor="@color/black"
