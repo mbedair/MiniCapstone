@@ -121,7 +121,7 @@ public class SettingsFragment extends Fragment {
         btnGoToHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutMain, new HomeFragment(),null).commit();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutHome, new HomeFragment(),null).commit();
             }
         });
 
@@ -132,18 +132,12 @@ public class SettingsFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-
-        //Hide Toolbar
-        ((MainActivity)getActivity()).getSupportActionBar().hide();
     }
 
 
     @Override
     public void onStop() {
         super.onStop();
-
-        //Show Toolbar
-        ((MainActivity)getActivity()).getSupportActionBar().show();
     }
 
 }

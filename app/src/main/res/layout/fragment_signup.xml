@@ -43,7 +43,7 @@
             android:fontFamily="@font/gotham_rounded_book_21018"
             android:text="Create a new account!"
             android:textColor="#252422"
-            android:textSize="16dp" />
+            android:textSize="20dp" />
 
         <EditText
             android:id="@+id/editSignUpPassword"

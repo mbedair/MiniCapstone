@@ -7,6 +7,7 @@
     android:background="@color/white"
     tools:ignore="WebViewLayout"
     android:orientation="vertical"
+    tools:context="com.example.minicapstone.HomeFragment"
     android:gravity="center_horizontal">
 
 
@@ -15,7 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="Tuesday, NOVEMBER 14"
+        android:text="TUESDAY, NOVEMBER 14"
         android:textColor="#5C5C5C"
         android:textSize="13dp"
         android:textStyle="bold"
