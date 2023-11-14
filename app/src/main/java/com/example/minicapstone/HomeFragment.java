@@ -155,7 +155,7 @@ public class HomeFragment extends Fragment {
 
         //Setup WebView
         webViewVideoFeed.setWebViewClient(new WebViewClient());
-        webViewVideoFeed.loadUrl("http://192.168.137.121:8081/");
+        webViewVideoFeed.loadUrl("http://192.168.0.24:5000/");
         WebSettings webSettings=webViewVideoFeed.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webViewVideoFeed.getSettings().setLoadWithOverviewMode(true);

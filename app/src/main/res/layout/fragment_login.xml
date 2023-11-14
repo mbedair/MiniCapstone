@@ -94,7 +94,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/editLoginPassword"
             android:layout_marginTop="16dp"
-            android:text="Forgot your password?"
+            android:text=""
             android:textColor="@color/orangeCustom4"
             android:textSize="15dp"
             android:layout_alignRight="@+id/editLoginPassword"
