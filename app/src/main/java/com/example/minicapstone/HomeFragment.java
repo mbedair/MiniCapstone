@@ -1,9 +1,17 @@
 package com.example.minicapstone;
 
+import android.annotation.SuppressLint;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
@@ -40,6 +48,7 @@ public class HomeFragment extends Fragment {
     private TextView lowerStatusText;
     private androidx.cardview.widget.CardView colorStatus;
     private String nickname;
+    private static final String CHANNEL_ID = "channelid1";
 
     //Vectors to be later extracted from database
 
@@ -64,6 +73,7 @@ public class HomeFragment extends Fragment {
         lowerStatusText = view.findViewById(R.id.posturestatuslowertext);
         colorStatus = view.findViewById(R.id.posturestatuscolor);
         editHomeNickname = view.findViewById(R.id.editHomeNickname);
+        sendNotifications(view);
 
 
         DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("users").child(userId);
@@ -209,6 +219,7 @@ public class HomeFragment extends Fragment {
             upperStatusText.setText("Bad posture");
             lowerStatusText.setText("Straighten your back");
             colorStatus.setCardBackgroundColor(ContextCompat.getColor(requireContext(), R.color.orangeCustom3));
+            sendNotifications(view);
         }
     }
 
@@ -233,6 +244,34 @@ public class HomeFragment extends Fragment {
         return angleDegree;
     }
 
+    private void createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, "Posture", importance);
+            channel.setDescription("Sends a notification whenever your posture is not healthy!");
+            NotificationManager notificationManager = (NotificationManager) requireContext().getSystemService(Context.NOTIFICATION_SERVICE);
+            notificationManager.createNotificationChannel(channel);
+            channel.setShowBadge(true);
+        }
+    }
 
+    @SuppressLint("MissingPermission")
+    public void sendNotifications(View view) {
+
+        Log.d("Notification", "Sending notification");
+        // Notification creation code
+        Notification builder = new NotificationCompat.Builder(requireContext(), CHANNEL_ID)
+                .setSmallIcon(R.drawable.ic_launcher_foreground)
+                .setContentTitle("Please fix your posture!")
+                .setContentText("Please open the app to check how to fix your posture")
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+                .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                .build();
+
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(requireActivity().getApplicationContext());
+        int notificationId = (int) System.currentTimeMillis();
+        notificationManager.notify(notificationId, builder);
+    }
 
 }
