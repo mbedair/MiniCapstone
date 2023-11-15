@@ -46,7 +46,7 @@
             android:textSize="20dp" />
 
         <EditText
-            android:id="@+id/editSignUpPassword"
+            android:id="@+id/editSignUpEmail"
             android:layout_width="325dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/textCreateAccount"
@@ -62,10 +62,10 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/editSignUpEmail"
+            android:id="@+id/editSignUpPassword"
             android:layout_width="325dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/editSignUpPassword"
+            android:layout_below="@id/editSignUpEmail"
             android:layout_marginTop="15dp"
             android:drawableStart="@drawable/custom_lock_icon"
             android:drawablePadding="18dp"
@@ -78,11 +78,28 @@
             android:textColorHint="#AAAAAA"
             android:textStyle="bold" />
 
+        <EditText
+            android:id="@+id/editSignUpConfirmPassword"
+            android:layout_width="325dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editSignUpPassword"
+            android:layout_marginTop="15dp"
+            android:drawableStart="@drawable/custom_lock_icon"
+            android:drawablePadding="18dp"
+            android:fontFamily="@font/gotham_rounded_book_21018"
+            android:hint="Confirm Password"
+            android:inputType="textPassword"
+            android:maxLength="45"
+            android:paddingBottom="25dp"
+            android:textColor="#403D39"
+            android:textColorHint="#AAAAAA"
+            android:textStyle="bold" />
+
         <Button
             android:id="@+id/btnSignUp"
             android:layout_width="325dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/editSignUpEmail"
+            android:layout_below="@id/editSignUpConfirmPassword"
             android:layout_marginTop="70dp"
             android:background="@drawable/button_orange"
             android:fontFamily="@font/gotham_rounded_medium_21022"
