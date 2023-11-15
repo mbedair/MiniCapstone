@@ -47,7 +47,7 @@ public class HomeActivity extends AppCompatActivity {
             addHomeFragment();
         }
 
-        bottomNavigation.add(new MeowBottomNavigation.Model(1, R.drawable.ic_notifications));
+        bottomNavigation.add(new MeowBottomNavigation.Model(1, R.drawable.ic_bar_chart));
         bottomNavigation.add(new MeowBottomNavigation.Model(2, R.drawable.ic_home));
         bottomNavigation.add(new MeowBottomNavigation.Model(3, R.drawable.ic_settings));
 

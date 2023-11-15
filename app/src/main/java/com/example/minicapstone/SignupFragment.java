@@ -70,7 +70,7 @@ public class SignupFragment extends Fragment {
                 if (editSignUpEmail.length() < 1 || editSignUpPassword.length() < 1) {
                     Toast.makeText(getActivity(), "Please Fill In All Fields", Toast.LENGTH_SHORT).show();
                 } else if (editSignUpPassword.length() < 6) {
-                    Toast.makeText(getActivity(), "Password has to be at least 6 characters long", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Password must be at least 6 characters", Toast.LENGTH_LONG).show();
                 } else if(!password.equals(confirmPassword)) {
                     Toast.makeText(getActivity(), "Passwords do not match", Toast.LENGTH_SHORT).show();
                 } else {

@@ -1,82 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    tools:context="com.example.minicapstone.SettingsFragment"
-    android:background="#FFFCF2">
+    android:background="#FBFBFB"
+    android:orientation="vertical"
+    tools:context="com.example.minicapstone.SettingsFragment">
 
-    <TextView
-        android:id="@+id/textSettings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Edit Settings"
-        android:textColor="#252422"
-        android:textSize="20dp"
-        android:textStyle="bold" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="40dp"
+        android:gravity="center">
 
-    <EditText
-        android:id="@+id/editSettingsNickname"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textSettings"
-        android:layout_marginTop="10dp"
-        android:hint="Nickname"
-        android:maxLength="30"
-        android:textColor="#403D39"/>
+        <TextView
+            android:id="@+id/textSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/gotham_rounded_bold_21016"
+            android:text="Settings"
+            android:textColor="@color/orangeCustom3"
+            android:textSize="28dp" />
 
-    <EditText
-        android:id="@+id/editSettingsOldPassword"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editSettingsNickname"
-        android:hint="Old Password"
-        android:inputType="textPassword"
-        android:maxLength="45"
-        android:textColor="#403D39"/>
+        <Switch
+            android:id="@+id/switchNotifications"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textSettings"
+            android:layout_alignLeft="@+id/textSettings"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/sf_pro_display_bold"
+            android:switchPadding="50dp"
+            android:text="Allow Background Notifications"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
 
-    <EditText
-        android:id="@+id/editSettingsNewPassword"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editSettingsOldPassword"
-        android:hint="New Password"
-        android:inputType="textPassword"
-        android:maxLength="45"
-        android:textColor="#403D39"/>
+        <TextView
+            android:id="@+id/textNotifications"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/switchNotifications"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/gotham_rounded_medium_21022"
+            android:text="Enable this if you would like to receive notifications while the app is running in the background."
+            android:textColor="@color/grayCustom2"
+            android:textSize="12dp" />
 
-    <Button
-        android:id="@+id/btnSaveSettings"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editSettingsNewPassword"
-        android:layout_marginTop="20dp"
-        android:background="#EB5E28"
-        android:text="Save Settings"
-        android:textColor="#FFFCF2"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/textEditSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textNotifications"
+            android:layout_marginTop="70dp"
+            android:fontFamily="@font/gotham_rounded_bold_21016"
+            android:text="User Settings"
+            android:textColor="@color/orangeCustom3"
+            android:textSize="20dp" />
 
-    <TextView
-        android:id="@+id/textSettingsReturn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btnSaveSettings"
-        android:layout_marginTop="20dp"
-        android:text="Or return back to" />
+        <Switch
+            android:id="@+id/switchEditSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textEditSettings"
+            android:layout_marginLeft="58dp"
+            android:layout_toRightOf="@+id/textEditSettings"
+            android:fontFamily="@font/sf_pro_display_bold"
+            android:switchPadding="3dp"
+            android:text="Edit Settings"
+            android:textColor="@color/black" />
 
-    <Button
-        android:id="@+id/btnGoToHome"
-        android:layout_width="82dp"
-        android:layout_height="30dp"
-        android:layout_below="@+id/btnSaveSettings"
-        android:layout_marginTop="15dp"
-        android:layout_toRightOf="@+id/textSettingsReturn"
-        android:background="@null"
-        android:text="Home Page"
-        android:textAllCaps="false"
-        android:textColor="#252422"/>
+        <EditText
+            android:id="@+id/editSettingsNickname"
+            android:layout_width="325dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textEditSettings"
+            android:layout_marginTop="30dp"
+            android:drawableStart="@drawable/ic_person_outline"
+            android:drawablePadding="18dp"
+            android:fontFamily="@font/gotham_rounded_book_21018"
+            android:hint="Nickname"
+            android:maxLength="45"
+            android:paddingBottom="25dp"
+            android:textColor="#403D39"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ- "
+            android:textColorHint="#AAAAAA"
+            android:textSize="17dp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editSettingsOldPassword"
+            android:layout_width="325dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editSettingsNickname"
+            android:layout_marginTop="15dp"
+            android:drawableStart="@drawable/ic_lock"
+            android:drawablePadding="18dp"
+            android:fontFamily="@font/gotham_rounded_book_21018"
+            android:hint="Old Password"
+            android:inputType="textPassword"
+            android:maxLength="30"
+            android:paddingBottom="25dp"
+            android:textColor="#403D39"
+            android:textColorHint="#AAAAAA"
+            android:textSize="17dp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editSettingsNewPassword"
+            android:layout_width="325dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editSettingsOldPassword"
+            android:layout_marginTop="15dp"
+            android:drawableStart="@drawable/custom_lock_icon"
+            android:drawablePadding="18dp"
+            android:fontFamily="@font/gotham_rounded_book_21018"
+            android:hint="New Password"
+            android:inputType="textPassword"
+            android:maxLength="45"
+            android:paddingBottom="25dp"
+            android:textColor="#403D39"
+            android:textColorHint="#AAAAAA"
+            android:textSize="17dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnSaveSettings"
+            android:layout_width="325dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editSettingsNewPassword"
+            android:layout_marginTop="70dp"
+            android:background="@drawable/button_orange"
+            android:fontFamily="@font/gotham_rounded_medium_21022"
+            android:text="Save Settings"
+            android:textAllCaps="false"
+            android:textColor="#FFFCF2"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
 
 
-
-</RelativeLayout>
+</LinearLayout>
