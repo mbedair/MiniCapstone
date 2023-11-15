@@ -31,11 +31,11 @@ public class SignupFragment extends Fragment {
     private FirebaseAuth auth;
 
     //Class Attributes
-    private String email, password;
+    private String email, password, confirmPassword;
 
     //Views
     View view;
-    private EditText editSignUpPassword, editSignUpEmail;
+    private EditText editSignUpPassword, editSignUpEmail, editSignUpConfirmPassword;
     private Button btnSignUp, btnGoToLogin;
     ImageView imgBtnSignUpBack;
 
@@ -52,6 +52,7 @@ public class SignupFragment extends Fragment {
         //Retrieve View ID's
         editSignUpEmail = view.findViewById(R.id.editSignUpEmail);
         editSignUpPassword = view.findViewById(R.id.editSignUpPassword);
+        editSignUpConfirmPassword = view.findViewById(R.id.editSignUpConfirmPassword);
         btnSignUp = view.findViewById(R.id.btnSignUp);
         btnGoToLogin = view.findViewById(R.id.btnGoToLogin);
         imgBtnSignUpBack = view.findViewById(R.id.imgBtnSignUpBack);
@@ -61,15 +62,18 @@ public class SignupFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
+                email = editSignUpEmail.getText().toString().trim();
+                password = editSignUpPassword.getText().toString().trim();
+                confirmPassword = editSignUpConfirmPassword.getText().toString().trim();
+
                 //Check if any of the input fields are left empty
                 if (editSignUpEmail.length() < 1 || editSignUpPassword.length() < 1) {
                     Toast.makeText(getActivity(), "Please Fill In All Fields", Toast.LENGTH_SHORT).show();
                 } else if (editSignUpPassword.length() < 6) {
-                    Toast.makeText(getActivity(), "Password has to be at least 6 characters", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Password has to be at least 6 characters long", Toast.LENGTH_SHORT).show();
+                } else if(!password.equals(confirmPassword)) {
+                    Toast.makeText(getActivity(), "Passwords do not match", Toast.LENGTH_SHORT).show();
                 } else {
-
-                    email = editSignUpEmail.getText().toString().trim();
-                    password = editSignUpPassword.getText().toString().trim();
 
 
                     auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -79,7 +83,7 @@ public class SignupFragment extends Fragment {
                                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutMain, new LoginFragment(),null).commit();
                                 Toast.makeText(getActivity(), "Account Created Successfully", Toast.LENGTH_LONG).show();
                             } else {
-                                Toast.makeText(getActivity(), "Account Creation failed", Toast.LENGTH_LONG).show();
+                                Toast.makeText(getActivity(), "Account Creation Failed", Toast.LENGTH_LONG).show();
                             }
                         }
                     });
