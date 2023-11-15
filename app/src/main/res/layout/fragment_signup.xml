@@ -55,6 +55,7 @@
             android:drawablePadding="18dp"
             android:fontFamily="@font/gotham_rounded_book_21018"
             android:hint="Email Address"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-_@."
             android:maxLength="30"
             android:paddingBottom="25dp"
             android:textColor="#403D39"

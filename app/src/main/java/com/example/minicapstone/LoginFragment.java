@@ -64,7 +64,7 @@ public class LoginFragment extends Fragment {
                 if (editLoginEmail.length() < 1 || editLoginPassword.length() < 1) {
                     Toast.makeText(getActivity(), "Please Fill In All Fields", Toast.LENGTH_SHORT).show();
                 } else if (editLoginPassword.length() < 6) {
-                    Toast.makeText(getActivity(), "Password has to be more than 6 characters", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Password must be at least 6 characters", Toast.LENGTH_SHORT).show();
                 } else {
 
                     auth.signInWithEmailAndPassword(email, password)
@@ -73,7 +73,7 @@ public class LoginFragment extends Fragment {
                                 public void onSuccess(AuthResult authResult) {
                                     Intent i = new Intent(getActivity(), HomeActivity.class);
                                     startActivity(i);
-                                    Toast.makeText(getActivity(), "Login Successful", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(getActivity(), "Login Successful", Toast.LENGTH_SHORT).show();
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
