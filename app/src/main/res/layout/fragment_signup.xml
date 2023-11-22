@@ -60,7 +60,8 @@
             android:paddingBottom="25dp"
             android:textColor="#403D39"
             android:textColorHint="#AAAAAA"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:inputType="textEmailAddress"/>
 
         <EditText
             android:id="@+id/editSignUpPassword"

@@ -69,7 +69,8 @@
             android:textColorHint="#AAAAAA"
             android:textColor="#403D39"
             android:textStyle="bold"
-            android:fontFamily="@font/gotham_rounded_book_21018"/>
+            android:fontFamily="@font/gotham_rounded_book_21018"
+            android:inputType="textEmailAddress"/>
 
         <EditText
             android:id="@+id/editLoginPassword"
