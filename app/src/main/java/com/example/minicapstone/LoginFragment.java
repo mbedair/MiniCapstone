@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -29,6 +30,7 @@ public class LoginFragment extends Fragment {
 
     //Views
     View view;
+    private TextView textHelloThere, textWelcomeBack, textHaveAccount;
     private EditText editLoginEmail, editLoginPassword;
     private Button btnLogin, btnGoToSignUp;
     private ImageButton imgBtnLoginBack;
@@ -44,11 +46,23 @@ public class LoginFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_login, container, false);
 
         //Retrieve View ID's
+        textHelloThere = view.findViewById(R.id.textHelloThere);
+        textWelcomeBack = view.findViewById(R.id.textWelcomeBack);
+        textHaveAccount = view.findViewById(R.id.textHaveAccount);
         editLoginEmail = view.findViewById(R.id.editLoginEmail);
         editLoginPassword = view.findViewById(R.id.editLoginPassword);
         btnLogin = view.findViewById(R.id.btnLogin);
         btnGoToSignUp = view.findViewById(R.id.btnGoToSignUp);
         imgBtnLoginBack = view.findViewById(R.id.imgBtnLoginBack);
+
+        //Initialize Views
+        textHelloThere.setText(R.string.hello_there);
+        textWelcomeBack.setText(R.string.welcome_back);
+        textHaveAccount.setText(R.string.no_account);
+        editLoginEmail.setHint(R.string.email_edit_hint_login);
+        editLoginPassword.setHint(R.string.password_edit_hint_login);
+        btnLogin.setText(R.string.login_button);
+        btnGoToSignUp.setText(R.string.go_to_signup_button);
 
 
         //Set Login Button OnClickListener
@@ -62,9 +76,9 @@ public class LoginFragment extends Fragment {
 
                 //Check if any of the input fields are left empty
                 if (editLoginEmail.length() < 1 || editLoginPassword.length() < 1) {
-                    Toast.makeText(getActivity(), "Please Fill In All Fields", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), getContext().getString(R.string.fill_in_all_fields), Toast.LENGTH_SHORT).show();
                 } else if (editLoginPassword.length() < 6) {
-                    Toast.makeText(getActivity(), "Password must be at least 6 characters", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), getContext().getString(R.string.password_must_be_at_least), Toast.LENGTH_SHORT).show();
                 } else {
 
                     auth.signInWithEmailAndPassword(email, password)
@@ -73,12 +87,12 @@ public class LoginFragment extends Fragment {
                                 public void onSuccess(AuthResult authResult) {
                                     Intent i = new Intent(getActivity(), HomeActivity.class);
                                     startActivity(i);
-                                    Toast.makeText(getActivity(), "Login Successful", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getActivity(), getContext().getString(R.string.login_successful), Toast.LENGTH_SHORT).show();
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
-                                    Toast.makeText(getActivity(), "Login Failed", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(getActivity(), getContext().getString(R.string.login_failed), Toast.LENGTH_LONG).show();
                                 }
                             });
 

@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/gotham_rounded_bold_21016"
-            android:text="Sign Up"
+            android:text="@string/sign_up"
             android:textColor="@color/orangeCustom3"
             android:textSize="26dp" />
 
@@ -41,7 +41,7 @@
             android:layout_marginTop="12dp"
             android:layout_below="@+id/textSignUp"
             android:fontFamily="@font/gotham_rounded_book_21018"
-            android:text="Create a new account!"
+            android:text="@string/create_new_account"
             android:textColor="#252422"
             android:textSize="20dp" />
 
@@ -54,7 +54,7 @@
             android:drawableStart="@drawable/custom_email_icon"
             android:drawablePadding="18dp"
             android:fontFamily="@font/gotham_rounded_book_21018"
-            android:hint="Email Address"
+            android:hint="@string/email_edit_hint_signup"
             android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-_@."
             android:maxLength="30"
             android:paddingBottom="25dp"
@@ -71,7 +71,7 @@
             android:drawableStart="@drawable/custom_lock_icon"
             android:drawablePadding="18dp"
             android:fontFamily="@font/gotham_rounded_book_21018"
-            android:hint="Password"
+            android:hint="@string/password_edit_hint_signup"
             android:inputType="textPassword"
             android:maxLength="45"
             android:paddingBottom="25dp"
@@ -88,7 +88,7 @@
             android:drawableStart="@drawable/custom_lock_icon"
             android:drawablePadding="18dp"
             android:fontFamily="@font/gotham_rounded_book_21018"
-            android:hint="Confirm Password"
+            android:hint="@string/confirm_password_edit_hint_signup"
             android:inputType="textPassword"
             android:maxLength="45"
             android:paddingBottom="25dp"
@@ -104,20 +104,20 @@
             android:layout_marginTop="70dp"
             android:background="@drawable/button_orange"
             android:fontFamily="@font/gotham_rounded_medium_21022"
-            android:text="Sign Up"
+            android:text="@string/signup_button"
             android:textAllCaps="false"
             android:textColor="#FFFCF2"
             android:textSize="15dp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textNoAccount"
+            android:id="@+id/textHaveAccount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/btnSignUp"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/gotham_rounded_book_21018"
-            android:text="Already have an account?"
+            android:text="@string/have_account"
             android:textColor="#403D39" />
 
         <Button
@@ -125,14 +125,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/btnSignUp"
-            android:layout_marginLeft="-18dp"
+            android:layout_marginLeft="6dp"
             android:layout_marginTop="15dp"
-            android:layout_toRightOf="@+id/textNoAccount"
-            android:layout_alignBaseline="@+id/textNoAccount"
+            android:layout_toRightOf="@+id/textHaveAccount"
+            android:layout_alignBaseline="@+id/textHaveAccount"
             android:background="#00FFFFFF"
             android:fontFamily="@font/gotham_rounded_bold_21016"
-            android:text="Log In"
+            android:text="@string/go_to_login_button"
             android:textAllCaps="false"
+            android:gravity="left|center_vertical"
             android:textColor="@color/orangeCustom3" />
 
     </RelativeLayout>

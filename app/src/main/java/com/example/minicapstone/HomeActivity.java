@@ -58,7 +58,7 @@ public class HomeActivity extends AppCompatActivity {
             public Unit invoke(MeowBottomNavigation.Model model) {
 
                 if(model.getId() == 1) {
-                    getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutHome, new HomeFragment(),null).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutHome, new MetricsFragment(),null).commit();
                 } else if(model.getId() == 3) {
                     getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutHome, new SettingsFragment(),null).commit();
                 } else {

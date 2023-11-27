@@ -25,6 +25,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import org.w3c.dom.Text;
+
 
 public class SignupFragment extends Fragment {
 
@@ -35,6 +37,7 @@ public class SignupFragment extends Fragment {
 
     //Views
     View view;
+    private TextView textSignUp, textCreateAccount, textHaveAccount;
     private EditText editSignUpPassword, editSignUpEmail, editSignUpConfirmPassword;
     private Button btnSignUp, btnGoToLogin;
     ImageView imgBtnSignUpBack;
@@ -50,12 +53,25 @@ public class SignupFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_signup, container, false);
 
         //Retrieve View ID's
+        textSignUp = view.findViewById(R.id.textSignUp);
+        textCreateAccount = view.findViewById(R.id.textCreateAccount);
+        textHaveAccount = view.findViewById(R.id.textHaveAccount);
         editSignUpEmail = view.findViewById(R.id.editSignUpEmail);
         editSignUpPassword = view.findViewById(R.id.editSignUpPassword);
         editSignUpConfirmPassword = view.findViewById(R.id.editSignUpConfirmPassword);
         btnSignUp = view.findViewById(R.id.btnSignUp);
         btnGoToLogin = view.findViewById(R.id.btnGoToLogin);
         imgBtnSignUpBack = view.findViewById(R.id.imgBtnSignUpBack);
+
+        //Initialize Views
+        textSignUp.setText(R.string.sign_up);
+        textCreateAccount.setText(R.string.create_new_account);
+        textHaveAccount.setText(R.string.have_account);
+        editSignUpEmail.setHint(R.string.email_edit_hint_signup);
+        editSignUpPassword.setHint(R.string.password_edit_hint_signup);
+        editSignUpConfirmPassword.setHint(R.string.confirm_password_edit_hint_signup);
+        btnSignUp.setText(R.string.signup_button);
+        btnGoToLogin.setText(R.string.go_to_login_button);
 
         //Set SignUp Button OnClickListener
         btnSignUp.setOnClickListener(new View.OnClickListener() {
@@ -68,11 +84,11 @@ public class SignupFragment extends Fragment {
 
                 //Check if any of the input fields are left empty
                 if (editSignUpEmail.length() < 1 || editSignUpPassword.length() < 1) {
-                    Toast.makeText(getActivity(), "Please Fill In All Fields", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), getContext().getString(R.string.fill_in_all_fields), Toast.LENGTH_SHORT).show();
                 } else if (editSignUpPassword.length() < 6) {
-                    Toast.makeText(getActivity(), "Password must be at least 6 characters", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), getContext().getString(R.string.password_must_be_at_least), Toast.LENGTH_LONG).show();
                 } else if(!password.equals(confirmPassword)) {
-                    Toast.makeText(getActivity(), "Passwords do not match", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), getContext().getString(R.string.passwords_do_not_match), Toast.LENGTH_SHORT).show();
                 } else {
 
 
@@ -81,9 +97,9 @@ public class SignupFragment extends Fragment {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutMain, new LoginFragment(),null).commit();
-                                Toast.makeText(getActivity(), "Account Created Successfully", Toast.LENGTH_LONG).show();
+                                Toast.makeText(getActivity(), getContext().getString(R.string.account_created_successfully), Toast.LENGTH_LONG).show();
                             } else {
-                                Toast.makeText(getActivity(), "Account Creation Failed", Toast.LENGTH_LONG).show();
+                                Toast.makeText(getActivity(), getContext().getString(R.string.account_creation_failed), Toast.LENGTH_LONG).show();
                             }
                         }
                     });
