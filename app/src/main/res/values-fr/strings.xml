@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Start Fragment -->
+    <string name="app_name">PostureFit</string>
+    <string name="helper_tool">Pour vous soutenir dans le maintien d\'une posture saine</string>
+    <string name="continue_button">Continuer</string>
+
+    <!-- Login Fragment -->
+    <string name="hello_there">Allô!</string>
+    <string name="welcome_back">Bienvenue de retour</string>
+    <string name="email_edit_hint_login">Adresse Courriel</string>
+    <string name="password_edit_hint_login">Mot de Passe</string>
+    <string name="login_button">Connexion</string>
+    <string name="no_account">Vous n\'avez pas de compte?</string>
+    <string name="go_to_signup_button">S\'inscrire</string>
+
+    <!-- SignUp Fragment -->
+    <string name="sign_up">Inscription</string>
+    <string name="create_new_account">Créez un nouveau compte!</string>
+    <string name="email_edit_hint_signup">Adresse Courriel</string>
+    <string name="password_edit_hint_signup">Mot de Passe</string>
+    <string name="confirm_password_edit_hint_signup">Vérifier le Mot de Passe</string>
+    <string name="signup_button">S\'inscrire</string>
+    <string name="have_account">Vous avez déjà un compte?</string>
+    <string name="go_to_login_button">Connexion</string>
+
+    <!-- Home Fragment -->
+    <string name="date">JEUDI, 30 NOVEMBRE</string>
+    <string name="home">Accueil</string>
+    <string name="good_posture_status_upper">Bonne posture</string>
+    <string name="good_posture_status_lower">Gardez le dos bien droit</string>
+    <string name="bad_posture_status_upper">Mauvaise posture</string>
+    <string name="bad_posture_status_lower">Redressez votre dos</string>
+
+    <!-- Settings Fragment -->
+    <string name="settings">Réglages</string>
+    <string name="allow_notifications">Notifications en arrière-plan</string>
+    <string name="notifications_description">Activez cette option si vous souhaitez recevoir des notifications pendant que l\'application s\'exécute en arrière-plan.</string>
+    <string name="user_settings">Mot de Passe</string>
+    <string name="edit_password">Modifier</string>
+    <string name="nickname_hint_settings">Surnom</string>
+    <string name="old_password_hint_settings">Mot de Passe Actuel</string>
+    <string name="new_password_hint_settings">Nouveau Mot de Passe</string>
+    <string name="confirm_password_edit_hint_settings">Vérifier le Mot de Passe</string>
+    <string name="save_settings">Sauvegarder les Paramètres</string>
+
+    <!-- Metrics Fragment -->
+    <string name="metrics">Métriques</string>
+
+    <!-- Toast Messages -->
+    <string name="fill_in_all_fields">Veuillez remplir tous les champs</string>
+    <string name="login_successful">Connexion réussie</string>
+    <string name="login_failed">La connexion a échoué</string>
+    <string name="password_must_be_at_least">Le mot de passe doit comporter au moins 6 caractères</string>
+    <string name="new_password_must_be_at_least">Le nouveau mot de passe doit comporter au moins 6 caractères</string>
+    <string name="passwords_do_not_match">Les mots de passe ne correspondent pas</string>
+    <string name="account_created_successfully">Compte créé avec succès</string>
+    <string name="account_creation_failed">La création du compte a échoué</string>
+    <string name="password_updated">Mot de passe modifié</string>
+    <string name="fatal_error">Erreur Fatale</string>
+    <string name="incorrect_password">Mot de passe erroné. Veuillez entrer de nouveau votre mot de passe</string>
+
+</resources>

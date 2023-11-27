@@ -42,7 +42,7 @@
             android:layout_alignStart="@+id/textStartPosture"
             android:layout_marginTop="50dp"
             android:fontFamily="@font/gotham_rounded_book_21018"
-            android:text="A helper tool to keep your posture in check"
+            android:text="@string/helper_tool"
             android:textColor="#252422"
             android:textSize="26dp" />
 
@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_orange"
                 android:fontFamily="@font/gotham_rounded_medium_21022"
-                android:text="Continue"
+                android:text="@string/continue_button"
                 android:textAllCaps="false"
                 android:textColor="#FFFCF2"
                 android:textSize="15dp"

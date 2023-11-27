@@ -17,14 +17,11 @@ import androidx.fragment.app.Fragment;
 
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -35,6 +32,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
+
 
 public class HomeFragment extends Fragment {
 
@@ -43,9 +44,7 @@ public class HomeFragment extends Fragment {
 
     //Views
     private WebView webViewVideoFeed;
-    private TextView editHomeNickname;
-    private TextView upperStatusText;
-    private TextView lowerStatusText;
+    private TextView textDate, textHome, textHomeNickname, upperStatusText, lowerStatusText;
     private androidx.cardview.widget.CardView colorStatus;
     private String nickname;
     private static final String CHANNEL_ID = "channelid1";
@@ -69,10 +68,21 @@ public class HomeFragment extends Fragment {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String userId = user.getUid();
 
-        upperStatusText = view.findViewById(R.id.posturestatusuppertext);
-        lowerStatusText = view.findViewById(R.id.posturestatuslowertext);
+        //Retrieve View ID's
+        textDate = view.findViewById(R.id.textDate);
+        textHome = view.findViewById(R.id.textHome);
+        upperStatusText = view.findViewById(R.id.textPostureStatusUpperText);
+        lowerStatusText = view.findViewById(R.id.textPostureStatusLowerText);
         colorStatus = view.findViewById(R.id.posturestatuscolor);
-        editHomeNickname = view.findViewById(R.id.editHomeNickname);
+        //textHomeNickname = view.findViewById(R.id.textHomeNickname);
+
+        //Initialize Views
+        textDate.setText(getCurrentDate());
+        textHome.setText(R.string.home);
+        upperStatusText.setText(R.string.bad_posture_status_upper);
+        lowerStatusText.setText(R.string.bad_posture_status_lower);
+
+
         sendNotifications(view);
 
 
@@ -83,7 +93,7 @@ public class HomeFragment extends Fragment {
                 if (dataSnapshot.exists()) {
                     User userData = dataSnapshot.getValue(User.class);
                      nickname = userData.getNickname().toString();
-                     editHomeNickname.setText(nickname);
+                     textHomeNickname.setText(nickname);
 
                     // Use the retrieved data as needed
                 }
@@ -160,7 +170,7 @@ public class HomeFragment extends Fragment {
         });
 
 
-        //Retrieve View ID's
+        //Retrieve WebView ID
         webViewVideoFeed = view.findViewById(R.id.webViewVideoFeed);
 
         //Setup WebView
@@ -168,10 +178,15 @@ public class HomeFragment extends Fragment {
         webViewVideoFeed.loadUrl("http://192.168.0.24:5000/");
         WebSettings webSettings=webViewVideoFeed.getSettings();
         webSettings.setJavaScriptEnabled(true);
+
+        //Enable WebView Zoom Controls
+        webViewVideoFeed.getSettings().setBuiltInZoomControls(true);
+
+        //Setup WebView Zoom Settings
         webViewVideoFeed.getSettings().setLoadWithOverviewMode(true);
         webViewVideoFeed.getSettings().setUseWideViewPort(true);
-        return view;
 
+        return view;
 
     }
 
@@ -179,6 +194,14 @@ public class HomeFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+
+        //Update Date TextView
+        textDate.setText(getCurrentDate());
+
+        //Adjust WebView Zoom Settings
+        webViewVideoFeed.getSettings().setBuiltInZoomControls(true);
+        webViewVideoFeed.getSettings().setLoadWithOverviewMode(true);
+        webViewVideoFeed.getSettings().setUseWideViewPort(true);
     }
 
 
@@ -211,13 +234,13 @@ public class HomeFragment extends Fragment {
         // Update the UI based on both left and right angles
         if ((angleLeft > 85 && angleLeft < 110) || (angleRight > 85 && angleRight < 110)) {
             // Update the UI if good posture
-            upperStatusText.setText("Good posture");
-            lowerStatusText.setText("Keep your back straight");
+            upperStatusText.setText(R.string.good_posture_status_upper);
+            lowerStatusText.setText(R.string.good_posture_status_lower);
             colorStatus.setCardBackgroundColor(ContextCompat.getColor(requireContext(), R.color.greencustom));
         } else {
             // Update the UI for other cases (e.g., bad posture)
-            upperStatusText.setText("Bad posture");
-            lowerStatusText.setText("Straighten your back");
+            upperStatusText.setText(R.string.bad_posture_status_upper);
+            lowerStatusText.setText(R.string.bad_posture_status_lower);
             colorStatus.setCardBackgroundColor(ContextCompat.getColor(requireContext(), R.color.orangeCustom3));
             sendNotifications(view);
         }
@@ -272,6 +295,20 @@ public class HomeFragment extends Fragment {
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(requireActivity().getApplicationContext());
         int notificationId = (int) System.currentTimeMillis();
         notificationManager.notify(notificationId, builder);
+    }
+
+
+    public String getCurrentDate() {
+
+        String currentDate;
+        SimpleDateFormat dayFormat = new SimpleDateFormat("EEEE, MMMM dd", Locale.getDefault());
+
+        Calendar calendar = Calendar.getInstance();
+        currentDate = dayFormat.format(calendar.getTime());
+
+        currentDate = currentDate.toUpperCase();
+
+        return currentDate;
     }
 
 }
