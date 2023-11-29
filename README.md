@@ -1,7 +1,7 @@
 # COEN/ELEC 390
 
 ## Description
-This project is a posture detection application made for android development. The application utilizes a microcontroller (Raspberry Pi 4B), an external camera, and Firebase Realtime database to power the application. The application then uses the vector data from the database to calculate the angle between your back and foot. PostureFit then uses the resulting angle to determine whether your posture is correct.
+This project is a posture detection application made for android devices. The application utilizes a microcontroller (Raspberry Pi 4B), an external camera, and Firebase Realtime database to power the application. The application then uses the vector data from the database to calculate the angle between your back and foot. PostureFit then uses the resulting angle to determine whether your posture is correct.
 
 ## Team Members
 
