@@ -34,8 +34,8 @@
 
     <!-- Settings Fragment -->
     <string name="settings">Réglages</string>
-    <string name="allow_notifications">Notifications en arrière-plan</string>
-    <string name="notifications_description">Activez cette option si vous souhaitez recevoir des notifications pendant que l\'application s\'exécute en arrière-plan.</string>
+    <string name="allow_notifications">Autoriser les Notifications</string>
+    <string name="notifications_description">Activez cette option si vous souhaitez recevoir des notifications pendant que l\'application s\'exécute en premier-plan.</string>
     <string name="user_settings">Mot de Passe</string>
     <string name="edit_password">Modifier</string>
     <string name="nickname_hint_settings">Surnom</string>
