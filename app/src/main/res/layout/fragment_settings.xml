@@ -33,7 +33,7 @@
             android:layout_marginTop="40dp"
             android:fontFamily="@font/sf_pro_display_bold"
             android:gravity="right|center_vertical"
-            android:switchPadding="49dp"
+            android:switchPadding="87dp"
             android:text="@string/allow_notifications"
             android:textColor="@color/black"
             android:textSize="16dp" />
