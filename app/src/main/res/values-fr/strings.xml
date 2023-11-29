@@ -43,6 +43,7 @@
     <string name="new_password_hint_settings">Nouveau Mot de Passe</string>
     <string name="confirm_password_edit_hint_settings">Vérifier le Mot de Passe</string>
     <string name="save_settings">Sauvegarder les Paramètres</string>
+    <string name="sign_out">Se Déconnecter</string>
 
     <!-- Metrics Fragment -->
     <string name="metrics">Métriques</string>
@@ -59,5 +60,6 @@
     <string name="password_updated">Mot de passe modifié</string>
     <string name="fatal_error">Erreur Fatale</string>
     <string name="incorrect_password">Mot de passe erroné. Veuillez entrer de nouveau votre mot de passe</string>
+    <string name="sign_out_successful">Déconnexion Réussie</string>
 
 </resources>

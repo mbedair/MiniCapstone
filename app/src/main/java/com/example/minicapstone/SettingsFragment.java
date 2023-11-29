@@ -1,5 +1,6 @@
 package com.example.minicapstone;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -32,7 +33,7 @@ public class SettingsFragment extends Fragment {
     View view;
     private TextView textSettings, textNotifications, textUserSettings;
     private EditText editSettingsNickname, editSettingsOldPassword, editSettingsNewPassword, editConfirmSettingsNewPassword;
-    private Button btnSaveSettings;
+    private Button btnSaveSettings, btnSignOut;
     private Switch switchNotifications, switchEditSettings;
 
     private String nickname, oldPassword, newPassword, confirmPassword;
@@ -55,6 +56,7 @@ public class SettingsFragment extends Fragment {
         editSettingsNewPassword = view.findViewById(R.id.editSettingsNewPassword);
         editConfirmSettingsNewPassword = view.findViewById(R.id.editConfirmSettingsNewPassword);
         btnSaveSettings = view.findViewById(R.id.btnSaveSettings);
+        btnSignOut = view.findViewById(R.id.btnSignOut);
         switchNotifications = view.findViewById(R.id.switchNotifications);
         switchEditSettings = view.findViewById(R.id.switchEditSettings);
 
@@ -67,6 +69,7 @@ public class SettingsFragment extends Fragment {
         editSettingsNewPassword.setHint(R.string.new_password_hint_settings);
         editConfirmSettingsNewPassword.setHint(R.string.confirm_password_edit_hint_settings);
         btnSaveSettings.setText(R.string.save_settings);
+        btnSignOut.setText(R.string.sign_out);
         switchNotifications.setText(R.string.allow_notifications);
         switchEditSettings.setText(R.string.edit_password);
 
@@ -167,6 +170,17 @@ public class SettingsFragment extends Fragment {
                     editSettingsNewPassword.setEnabled(false);
                     editConfirmSettingsNewPassword.setEnabled(false);
                 }
+            }
+        });
+
+
+        //Set GoToLogin Button OnClickListener
+        btnSignOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity(), MainActivity.class);
+                startActivity(i);
+                Toast.makeText(getActivity(), getContext().getString(R.string.sign_out_successful), Toast.LENGTH_SHORT).show();
             }
         });
 
