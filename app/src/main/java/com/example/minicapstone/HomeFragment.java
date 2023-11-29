@@ -108,11 +108,11 @@ public class HomeFragment extends Fragment {
         // Get a reference to the "pose_data" node
         DatabaseReference poseDataRef = FirebaseDatabase.getInstance().getReference("pose_data");
 
-        poseDataRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        poseDataRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                // Extract values from "vector_11_to_23"
-                DataSnapshot vectorLeft1Snap = dataSnapshot.child("vector_11_to_23");
+                // Extract values from "vector_23_to_11"
+                DataSnapshot vectorLeft1Snap = dataSnapshot.child("vector_23_to_11");
                 double value0LeftVector1 = vectorLeft1Snap.child("0").getValue(Double.class);
                 double value1LeftVector1 = vectorLeft1Snap.child("1").getValue(Double.class);
 
@@ -121,15 +121,15 @@ public class HomeFragment extends Fragment {
                 double value0LeftVector2 = vectorLeft2Snap.child("0").getValue(Double.class);
                 double value1LeftVector2 = vectorLeft2Snap.child("1").getValue(Double.class);
 
-                // Log values for vector_11_to_23
-                Log.d("TAG", "vector_11_to_23 - Value 0: " + value0LeftVector1 + ", Value 1: " + value1LeftVector1);
+                // Log values for vector_23_to_11
+                Log.d("TAG", "vector_23_to_11 - Value 0: " + value0LeftVector1 + ", Value 1: " + value1LeftVector1);
 
                 // Log values for vector_23_to_25
                 Log.d("TAG", "vector_23_to_25 - Value 0: " + value0LeftVector2 + ", Value 1: " + value1LeftVector2);
 
 
-                // Extract values from "vector_12_to_24"
-                DataSnapshot vectorRight1Snap = dataSnapshot.child("vector_12_to_24");
+                // Extract values from "vector_24_to_12"
+                DataSnapshot vectorRight1Snap = dataSnapshot.child("vector_24_to_12");
                 double value0RightVector1 = vectorRight1Snap.child("0").getValue(Double.class);
                 double value1RightVector1 = vectorRight1Snap.child("1").getValue(Double.class);
 
@@ -138,8 +138,8 @@ public class HomeFragment extends Fragment {
                 double value0RightVector2 = vectorRight2Snap.child("0").getValue(Double.class);
                 double value1RightVector2 = vectorRight2Snap.child("1").getValue(Double.class);
 
-                // Log values for vector_12_to_24
-                Log.d("TAG", "vector_12_to_24 - Value 0: " + value0RightVector1 + ", Value 1: " + value1RightVector1);
+                // Log values for vector_24_to_12
+                Log.d("TAG", "vector_24_to_12 - Value 0: " + value0RightVector1 + ", Value 1: " + value1RightVector1);
 
                 // Log values for vector_24_to_26
                 Log.d("TAG", "vector_24_to_26 - Value 0: " + value0RightVector2 + ", Value 1: " + value1RightVector2);
@@ -175,7 +175,7 @@ public class HomeFragment extends Fragment {
 
         //Setup WebView
         webViewVideoFeed.setWebViewClient(new WebViewClient());
-        webViewVideoFeed.loadUrl("http://192.168.0.24:5000/");
+        webViewVideoFeed.loadUrl("http://192.168.0.25:5000/");
         WebSettings webSettings=webViewVideoFeed.getSettings();
         webSettings.setJavaScriptEnabled(true);
 
@@ -232,7 +232,7 @@ public class HomeFragment extends Fragment {
         double angleRight = calculateAngleBetweenVectors(uRight, vRight);
 
         // Update the UI based on both left and right angles
-        if ((angleLeft > 85 && angleLeft < 110) || (angleRight > 85 && angleRight < 110)) {
+        if ((angleLeft >100 && angleLeft < 130) || (angleRight > 100 && angleRight < 130)) {
             // Update the UI if good posture
             upperStatusText.setText(R.string.good_posture_status_upper);
             lowerStatusText.setText(R.string.good_posture_status_lower);
