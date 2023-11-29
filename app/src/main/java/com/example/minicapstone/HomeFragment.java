@@ -56,6 +56,10 @@ public class HomeFragment extends Fragment {
     double[] uRight = new double[2];
     double[] vRight = new double[2];
 
+    private DatabaseReference poseDataRef;
+    private ValueEventListener poseDataListener;
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -106,9 +110,9 @@ public class HomeFragment extends Fragment {
         });
 
         // Get a reference to the "pose_data" node
-        DatabaseReference poseDataRef = FirebaseDatabase.getInstance().getReference("pose_data");
+        poseDataRef = FirebaseDatabase.getInstance().getReference("pose_data");
 
-        poseDataRef.addValueEventListener(new ValueEventListener() {
+        poseDataListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 // Extract values from "vector_23_to_11"
@@ -167,8 +171,10 @@ public class HomeFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Log.e("TAG", "Error: " + databaseError.getMessage());
             }
-        });
+        };
 
+
+        poseDataRef.addValueEventListener(poseDataListener);
 
         //Retrieve WebView ID
         webViewVideoFeed = view.findViewById(R.id.webViewVideoFeed);
@@ -208,6 +214,9 @@ public class HomeFragment extends Fragment {
     @Override
     public void onStop() {
         super.onStop();
+        if (poseDataListener != null) {
+            poseDataRef.removeEventListener(poseDataListener);
+        }
     }
 
 
