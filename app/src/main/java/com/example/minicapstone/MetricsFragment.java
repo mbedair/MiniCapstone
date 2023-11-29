@@ -9,14 +9,29 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.chart.common.dataentry.DataEntry;
+import com.anychart.chart.common.dataentry.ValueDataEntry;
+import com.anychart.charts.Pie;
+import com.anychart.enums.LegendLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Locale;
 
 public class MetricsFragment extends Fragment {
+
+    ////////piechart
+    String[] states = {"Good posture","Bad posture"};
+    int[] hours = {33,22};
+    AnyChartView anyChartView;
+
+    /////////////
 
     View view;
     TextView textDateMetrics, textMetrics;
@@ -39,8 +54,33 @@ public class MetricsFragment extends Fragment {
         //Initialize Date TextView
         textDateMetrics.setText(getCurrentDate());
 
+        //////////piechart
+
+        anyChartView = view.findViewById(R.id.any_chart_view);
+
+        setupPieChart();
+
 
         return view;
+    }
+
+    public void setupPieChart(){
+        Pie pie = AnyChart.pie();
+        List<DataEntry> dataEntries = new ArrayList<>();
+
+        for (int i = 0; i<states.length; i++){
+            dataEntries.add(new ValueDataEntry(states[i],hours[i]));
+        }
+
+        pie.data(dataEntries);
+        anyChartView.setChart(pie);
+
+        pie.palette(new String[]{"#FF4F2A", "#AAAAAA"});
+
+        pie.legend()
+                .position("top")
+                .itemsLayout(LegendLayout.HORIZONTAL);
+
     }
 
 
