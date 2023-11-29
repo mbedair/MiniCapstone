@@ -26,12 +26,12 @@ import java.util.Locale;
 
 public class MetricsFragment extends Fragment {
 
-    ////////piechart
-    String[] states = {"Good posture","Bad posture"};
+    // --------- Pie Chart --------- //
+    String[] states = new String[2];
     int[] hours = {33,22};
     AnyChartView anyChartView;
 
-    /////////////
+    // ---------------------------- //
 
     View view;
     TextView textDateMetrics, textMetrics;
@@ -54,10 +54,10 @@ public class MetricsFragment extends Fragment {
         //Initialize Date TextView
         textDateMetrics.setText(getCurrentDate());
 
-        //////////piechart
-
+        //Pie Chart
         anyChartView = view.findViewById(R.id.any_chart_view);
-
+        states[0] = getResources().getString(R.string.good_posture);
+        states[1] = getResources().getString(R.string.bad_posture);
         setupPieChart();
 
 

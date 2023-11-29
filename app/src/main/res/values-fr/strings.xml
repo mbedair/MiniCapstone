@@ -47,6 +47,8 @@
 
     <!-- Metrics Fragment -->
     <string name="metrics">Métriques</string>
+    <string name="good_posture">Bonne posture</string>
+    <string name="bad_posture">Mauvaise posture</string>
 
     <!-- Toast Messages -->
     <string name="fill_in_all_fields">Veuillez remplir tous les champs</string>
