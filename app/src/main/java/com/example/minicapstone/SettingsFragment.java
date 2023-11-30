@@ -1,6 +1,14 @@
 package com.example.minicapstone;
 
+import static android.content.Context.NOTIFICATION_SERVICE;
+import static com.example.minicapstone.HomeFragment.CHANNEL_ID;
+
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -37,6 +45,9 @@ public class SettingsFragment extends Fragment {
     private Switch switchNotifications, switchEditSettings;
 
     private String nickname, oldPassword, newPassword, confirmPassword;
+
+    public static final String PREF_FILE_NAME = "MyPrefs";
+    public static final String NOTIFICATION_SWITCH_STATE = "notificationSwitchState";
 
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -147,12 +158,44 @@ public class SettingsFragment extends Fragment {
 
 
         //Set Allow Background Notifications Switch Listener
+        SharedPreferences prefs = requireActivity().getSharedPreferences(PREF_FILE_NAME, Context.MODE_PRIVATE);
+        boolean notificationSwitchState = prefs.getBoolean(NOTIFICATION_SWITCH_STATE, true);
+        switchNotifications.setChecked(notificationSwitchState);
+
+        //Set Allow Background Notifications Switch Listener
         switchNotifications.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putBoolean(NOTIFICATION_SWITCH_STATE, isChecked);
+                editor.apply();
+
                 if(isChecked) {
-                    //Enable Notifications
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        NotificationManager notificationManager = (NotificationManager) requireActivity().getSystemService(NOTIFICATION_SERVICE);
+                        if (notificationManager != null) {
+                            NotificationChannel channel = notificationManager.getNotificationChannel(CHANNEL_ID);
+                            if (channel != null) {
+                                channel.setImportance(NotificationManager.IMPORTANCE_HIGH);
+                                notificationManager.createNotificationChannel(channel);
+                            }
+                        }
+                    }
                 } else {
-                    //Disable Notifications
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        NotificationManager notificationManager = (NotificationManager) requireActivity().getSystemService(NOTIFICATION_SERVICE);
+
+                        if (notificationManager != null) {
+                            NotificationChannel channel = notificationManager.getNotificationChannel(CHANNEL_ID);
+
+                            if (channel != null) {
+                                channel.setImportance(NotificationManager.IMPORTANCE_NONE);
+                                channel.setVibrationPattern(new long[]{0});
+                                channel.setSound(null, null);
+                                notificationManager.createNotificationChannel(channel);
+                            }
+                        }
+                    }
                 }
             }
         });

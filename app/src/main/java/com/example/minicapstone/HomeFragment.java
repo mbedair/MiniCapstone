@@ -1,10 +1,14 @@
 package com.example.minicapstone;
 
+import static com.example.minicapstone.SettingsFragment.NOTIFICATION_SWITCH_STATE;
+import static com.example.minicapstone.SettingsFragment.PREF_FILE_NAME;
+
 import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
@@ -51,7 +55,7 @@ public class HomeFragment extends Fragment {
     private TextView textDate, textHome, textHomeNickname, upperStatusText, lowerStatusText;
     private androidx.cardview.widget.CardView colorStatus;
     private String nickname;
-    private static final String CHANNEL_ID = "channelid1";
+    static final String CHANNEL_ID = "channelid1";
 
     //Vectors to be later extracted from database
 
@@ -94,7 +98,7 @@ public class HomeFragment extends Fragment {
         lowerStatusText.setText(R.string.bad_posture_status_lower);
 
 
-        sendNotifications(view);
+        createNotificationChannel();
 
 
         DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("users").child(userId);
@@ -279,7 +283,11 @@ public class HomeFragment extends Fragment {
             upperStatusText.setText(R.string.bad_posture_status_upper);
             lowerStatusText.setText(R.string.bad_posture_status_lower);
             colorStatus.setCardBackgroundColor(ContextCompat.getColor(requireContext(), R.color.orangeCustom3));
-            sendNotifications(view);
+            SharedPreferences prefs = requireActivity().getSharedPreferences(PREF_FILE_NAME, Context.MODE_PRIVATE);
+            boolean notificationSwitchState = prefs.getBoolean(NOTIFICATION_SWITCH_STATE, true);
+            if (notificationSwitchState){
+                sendNotifications(view);
+            }
         }
     }
 
@@ -321,7 +329,7 @@ public class HomeFragment extends Fragment {
         Log.d("Notification", "Sending notification");
         // Notification creation code
         Notification builder = new NotificationCompat.Builder(requireContext(), CHANNEL_ID)
-                .setSmallIcon(R.drawable.ic_launcher_foreground)
+                .setSmallIcon(R.drawable.ic_icon)
                 .setContentTitle("Please fix your posture!")
                 .setContentText("Please open the app to check how to fix your posture")
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
