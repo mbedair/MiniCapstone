@@ -15,6 +15,7 @@ import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,6 +43,9 @@ public class HomeFragment extends Fragment {
     //Class Attributes
     View view;
 
+    //used for metrics data entry
+    private Boolean postureFlag = true;
+
     //Views
     private WebView webViewVideoFeed;
     private TextView textDate, textHome, textHomeNickname, upperStatusText, lowerStatusText;
@@ -58,6 +62,9 @@ public class HomeFragment extends Fragment {
 
     private DatabaseReference poseDataRef;
     private ValueEventListener poseDataListener;
+
+    MyDatabaseHelper myDB;
+
 
 
     @Override
@@ -192,6 +199,23 @@ public class HomeFragment extends Fragment {
         webViewVideoFeed.getSettings().setLoadWithOverviewMode(true);
         webViewVideoFeed.getSettings().setUseWideViewPort(true);
 
+
+        myDB = new MyDatabaseHelper(getActivity());
+
+        //sample the data every 1 minute
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if(postureFlag){
+                    myDB.addState("1");
+                }else{
+                    myDB.addState("0");
+                }
+                handler.postDelayed(this, 60 * 1000); // 60 seconds * 1000 milliseconds = 1 minute
+            }
+        }, 60 * 1000);
+
         return view;
 
     }
@@ -242,12 +266,16 @@ public class HomeFragment extends Fragment {
 
         // Update the UI based on both left and right angles
         if ((angleLeft >100 && angleLeft < 130) || (angleRight > 100 && angleRight < 130)) {
+            //update the flag
+            postureFlag = true;
             // Update the UI if good posture
             upperStatusText.setText(R.string.good_posture_status_upper);
             lowerStatusText.setText(R.string.good_posture_status_lower);
             colorStatus.setCardBackgroundColor(ContextCompat.getColor(requireContext(), R.color.greencustom));
         } else {
             // Update the UI for other cases (e.g., bad posture)
+            //update the flag
+            postureFlag = false;
             upperStatusText.setText(R.string.bad_posture_status_upper);
             lowerStatusText.setText(R.string.bad_posture_status_lower);
             colorStatus.setCardBackgroundColor(ContextCompat.getColor(requireContext(), R.color.orangeCustom3));
